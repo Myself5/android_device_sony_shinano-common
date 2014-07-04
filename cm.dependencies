@@ -1,9 +1,5 @@
 [
   {
-    "repository": "android_kernel_sony_msm8974pro",
-    "target_path": "kernel/sony/msm8974pro"
-  },
-  {
     "repository": "android_device_qcom_common",
     "target_path": "device/qcom/common"
   },
