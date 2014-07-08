@@ -25,6 +25,9 @@ TARGET_SPECIFIC_HEADER_PATH := device/sony/shinano-common/include
 # Kernel properties
 #TARGET_KERNEL_SOURCE := kernel/sony/msm8974pro
 
+# Time
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+
 # Platform
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 TARGET_BOARD_PLATFORM := msm8974
