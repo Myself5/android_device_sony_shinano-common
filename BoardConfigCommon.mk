@@ -23,7 +23,7 @@ include device/sony/qcom-common/BoardConfigCommon.mk
 TARGET_SPECIFIC_HEADER_PATH := device/sony/shinano-common/include
 
 # Kernel properties
-#TARGET_KERNEL_SOURCE := kernel/sony/msm8974pro
+TARGET_KERNEL_SOURCE := kernel/sony/msm8974pro
 
 # Time
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -158,3 +158,11 @@ TW_NO_USB_STORAGE := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/sony/shinano-common
+
+#MultiROM config. MultiROM also uses parts of TWRP config
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := device/sony/shinano-common/multirom/init_devices.c
+MR_DPI := hdpi
+MR_DPI_FONT := 340
+MR_FSTAB := device/sony/shinano-common/rootdir/twrp.fstab
+MR_KEXEC_MEM_MIN := 0x85000000
