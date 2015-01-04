@@ -162,8 +162,9 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/sony/shinano-common
 #MultiROM config. MultiROM also uses parts of TWRP config
 MR_INPUT_TYPE := type_b
 MR_INIT_DEVICES := device/sony/shinano-common/multirom/init_devices.c
-MR_DPI := hdpi
+MR_DPI := xhdpi
+MR_KEXEC_DTB := true
 MR_DPI_FONT := 340
 MR_FSTAB := device/sony/shinano-common/rootdir/twrp.fstab
 MR_USE_MROM_FSTAB := true
-MR_KEXEC_MEM_MIN := 0x03000000
+MR_KEXEC_MEM_MIN := 0x20000000
