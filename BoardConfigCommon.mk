@@ -166,6 +166,6 @@ MR_INIT_DEVICES := device/sony/shinano-common/multirom/init_devices.c
 MR_DPI := xhdpi
 MR_KEXEC_DTB := true
 MR_DPI_FONT := 340
-MR_FSTAB := device/sony/shinano-common/rootdir/twrp.fstab
+MR_FSTAB := device/sony/sirius/recovery/root/etc/twrp.fstab
 MR_USE_MROM_FSTAB := true
 MR_KEXEC_MEM_MIN := 0x20000000
