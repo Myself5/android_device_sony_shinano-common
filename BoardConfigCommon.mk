@@ -155,6 +155,7 @@ TW_INCLUDE_FUSE_EXFAT := true
 TW_BRIGHTNESS_PATH := /sys/class/leds/wled:backlight/brightness
 TW_MAX_BRIGHTNESS := 4095
 TW_NO_USB_STORAGE := true
+TW_NO_SCREEN_BLANK := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/sony/shinano-common
