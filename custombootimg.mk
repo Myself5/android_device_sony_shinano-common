@@ -6,6 +6,7 @@ $(uncompressed_ramdisk): $(INSTALLED_RAMDISK_TARGET)
 
 INITSH := device/sony/shinano-common/combinedroot/init.sh
 BOOTREC_DEVICE := $(PRODUCT_OUT)/recovery/bootrec-device
+LZMA_BIN := $(shell which lzma)
 
 DTBTOOL := $(HOST_OUT_EXECUTABLES)/dtbToolCM$(HOST_EXECUTABLE_SUFFIX)
 INSTALLED_DTIMAGE_TARGET := $(PRODUCT_OUT)/dt.img
@@ -41,6 +42,10 @@ INSTALLED_RECOVERYIMAGE_TARGET := $(PRODUCT_OUT)/recovery.img
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	$(recovery_ramdisk) \
 	$(recovery_kernel)
+	@echo ----- Compressing recovery ramdisk using LZMA ------
+	$(hide) rm -f $(OUT)/ramdisk-recovery.cpio.lzma
+	$(LZMA_BIN) -e -4 $(recovery_uncompressed_ramdisk)
+	$(hide) cp $(recovery_uncompressed_ramdisk).lzma $(recovery_ramdisk)
 	@echo ----- Making recovery image ------
 	$(hide) $(MKBOOTIMG) --kernel $(PRODUCT_OUT)/kernel --ramdisk $(PRODUCT_OUT)/ramdisk-recovery.img --cmdline "$(BOARD_KERNEL_CMDLINE)" --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) $(BOARD_MKBOOTIMG_ARGS) -o $(INSTALLED_RECOVERYIMAGE_TARGET)
 	@echo ----- Made recovery image -------- $@
