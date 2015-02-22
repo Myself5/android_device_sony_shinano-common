@@ -1,5 +1,4 @@
 # Audio
-lib/hw/audio.primary.msm8974.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
@@ -21,7 +20,10 @@ etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 lib/hw/camera.qcom.so:lib/hw/camera.vendor.qcom.so
+lib/libals.so
 lib/libcamera_clientsemc.so
+lib/libcammw.so
+lib/libidd.so
 lib/liblights-core.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
@@ -51,40 +53,18 @@ vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 
 # Cacao
-lib/camera/libexcal_object_tracker_plugin.so
-lib/camera/libexcal_cam_ctrl_plugin.so
-lib/camera/libexcal_scene_detector_plugin.so
-lib/camera/libexcal_streaming_ctrl_plugin.so
-lib/camera/libexcal_idt_ctrl_plugin.so
-lib/camera/libexcal_hdr_plugin.so
-lib/camera/libexcal_splitter_plugin.so
-lib/camera/libexcal_color_ctrl_plugin.so
-lib/camera/libexcal_snapshot_ctrl_plugin.so
-lib/camera/libexcal_hal_ctrl_plugin.so
-lib/camera/libexcal_face_detector_plugin.so
-lib/camera/libexcal_debug_display_plugin.so
-lib/camera/libexcal_lens_ctrl_plugin.so
-lib/camera/libexcal_focus_stats_conv_plugin.so
-lib/camera/libexcal_image_conv_plugin.so
-lib/camera/libexcal_flicker_detector_plugin.so
-lib/camera/libexcal_multiframe_nr_plugin.so
-lib/camera/libexcal_jpeg_enc_plugin.so
-lib/camera/libexcal_cap_ctrl_plugin.so
-lib/camera/libexcal_motion_estimation_plugin.so
-lib/camera/libexcal_iq_ctrl_plugin.so
-lib/camera/libexcal_exposure_ctrl_plugin.so
+lib/camera/libexcal_halctrl_plugin.so
+lib/camera/libexcal_idtctrl_plugin.so
 lib/libcacao_chokoball.so
 lib/libcacao_client.so
 lib/libcacao_common.so
-lib/libcacao_face.so
-lib/libcacao_imageconv.so
 lib/libcacao_imgproc.so
 lib/libcacao_jpeg.so
 lib/libcacao_pal.so
 lib/libcacao_parammgr.so
 lib/libcacao_service.so
-lib/libcacao_system.so
 lib/libcald_client.so
+lib/libcald_imageutil.so
 lib/libcald_pal.so
 lib/libcald_server.so
 lib/libcald_util.so
@@ -94,8 +74,6 @@ lib/libface.so
 lib/libface_wrapper.so
 lib/libsomc_chokoballpal.so
 lib/libsony_chokoball.so
-lib/libsony_chokoballrsc.so
-lib/libsony_face.so
 
 # Chromatix
 vendor/lib/libchromatix_imx134_common.so
@@ -204,6 +182,23 @@ etc/firmware/venus.mdt
 bin/mpdecision
 vendor/lib/libqc-opt.so
 
+# DRM
+bin/qseecomd
+etc/permissions/com.google.widevine.software.drm.xml
+framework/com.google.widevine.software.drm.jar
+lib/libdrmdecrypt.so
+vendor/lib/libdrmdiag.so
+vendor/lib/libdrmfs.so
+vendor/lib/libdrmtime.so
+vendor/lib/libQSEEComAPI.so
+vendor/lib/librpmb.so
+vendor/lib/libssd.so
+vendor/lib/libwvdrm_L3.so
+vendor/lib/libwvm.so
+vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/mediadrm/libwvdrmengine.so
+
 # FM
 bin/fmconfig
 bin/fm_qsoc_patches
@@ -228,11 +223,6 @@ etc/pre_hw_config.sh
 
 # IRSC
 bin/irsc_util
-
-# Keylayout
-usr/keylayout/gpio-keys.kl
-usr/keylayout/mhl-rcp.kl
-usr/keylayout/msm8974-taiko-mtp-snd-card_Button_Jack.kl
 
 # Keystore
 vendor/firmware/keymaster/keymaster.b00
@@ -283,13 +273,6 @@ vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
 vendor/lib/libqmi.so
 
-# QSEECOM
-bin/qseecomd
-vendor/lib/libdrmdiag.so
-vendor/lib/libdrmfs.so
-vendor/lib/libdrmtime.so
-vendor/lib/libQSEEComAPI.so
-
 # Security
 lib/lib_asb_tee.so
 lib/libkeyctrl.so
@@ -319,6 +302,7 @@ vendor/lib/libsensor_reg.so
 bin/taimport
 bin/ta_param_loader
 bin/ta_qmi_service
+bin/mlog_qmi_service
 lib/libMiscTaAccessor.so
 lib/libmiscta.so
 lib/libta.so

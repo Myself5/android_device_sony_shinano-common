@@ -15,7 +15,7 @@
 # inherit from msm8974-common
 include device/sony/msm8974-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/sony/shinano-common/include
+TARGET_SPECIFIC_HEADER_PATH += device/sony/shinano-common/include
 
 # Platform
 BOARD_VENDOR_PLATFORM := shinano
@@ -30,6 +30,9 @@ TARGET_DTB_EXTRA_FLAGS := --force-v2
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+
+# Audio
+#BOARD_AUDIO_AMPLIFIER := device/sony/shinano-common/libaudioamp
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -58,9 +61,9 @@ TARGET_INIT_VENDOR_LIB := libinit_shinano
 BOARD_SEPOLICY_DIRS += \
     device/sony/shinano-common/sepolicy
 
-# The list below is order dependent
 BOARD_SEPOLICY_UNION += \
-    file_contexts
+    mlog_qmi.te \
+    tfa_amp.te
 
 # Wifi
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
@@ -75,6 +78,7 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/firmware/wlan/bcmdhd/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_STA          := "/system/etc/firmware/wlan/bcmdhd/fw_bcmdhd.bin"
 WIFI_DRIVER_MODULE_ARG           := "nvram_path=/system/etc/firmware/wlan/bcmdhd/bcmdhd.cal"
+BOARD_NO_WIFI_HAL := true
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
