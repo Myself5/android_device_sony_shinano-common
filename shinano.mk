@@ -16,7 +16,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # inherit from qcom common
-$(call inherit-product, device/sony/qcom-common/qcom-common-330.mk)
+$(call inherit-product, device/sony/qcom-common/qcom-common.mk)
 
 # inherit from msm8974-common
 $(call inherit-product, device/sony/msm8974-common/msm8974.mk)
