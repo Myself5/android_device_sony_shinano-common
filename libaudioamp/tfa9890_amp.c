@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The CyanogenMod Project
+ * Copyright (C) 2014, The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef DEVICE_PERMS_H
-#define DEVICE_PERMS_H
+#include "tfa9890.h"
 
-#define PROPERTY_PERMS_APPEND \
-    { "camera.",          AID_MEDIA,    0 }, \
-    { "hw.camera.",       AID_CAMERA,   0 },
-
-#define CONTROL_PERMS_APPEND \
-    { "media.cacao",      AID_MEDIA, AID_MEDIA },
-
-#endif /* DEVICE_PERMS_H */
-
+int main(void) {
+    return tfa9890_init();
+}

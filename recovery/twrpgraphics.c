@@ -56,7 +56,6 @@
 // #define PRINT_SCREENINFO 1 // Enables printing of screen info to log
 
 typedef struct {
-    int type;
     GGLSurface texture;
     unsigned offset[97];
     unsigned cheight;
@@ -305,30 +304,6 @@ int gr_measureEx(const char *s, void* font)
         off -= 32;
         if (off < 96)
             total += (fnt->offset[off+1] - fnt->offset[off]);
-    }
-    return total;
-}
-
-int gr_maxExW(const char *s, void* font, int max_width)
-{
-    GRFont* fnt = (GRFont*) font;
-    int total = 0;
-    unsigned pos;
-    unsigned off;
-
-    if (!fnt)   fnt = gr_font;
-
-    while ((off = *s++))
-    {
-        off -= 32;
-        if (off < 96) {
-            max_width -= (fnt->offset[off+1] - fnt->offset[off]);
-                        if (max_width > 0) {
-                                total++;
-                        } else {
-                                return total;
-                        }
-                }
     }
     return total;
 }
@@ -602,28 +577,6 @@ int gr_getFontDetails(void* font, unsigned* cheight, unsigned* maxwidth)
         }
     }
     return 0;
-}
-
-void gr_freeFont(void *font)
-{
-    GRFont *f = font;
-    free(f->texture.data);
-    free(f);
-}
-
-int gr_getMaxFontHeight(void *font)
-{
-    GRFont *fnt = (GRFont*) font;
-
-    if (!fnt)   fnt = gr_font;
-    if (!fnt)   return -1;
-
-#ifndef TW_DISABLE_TTF
-    if(fnt->type == FONT_TYPE_TTF)
-        return gr_ttf_getMaxFontHeight(font);
-#endif
-
-    return fnt->cheight;
 }
 
 static void gr_init_font(void)
