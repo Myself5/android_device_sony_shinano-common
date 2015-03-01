@@ -7,10 +7,6 @@ const char *mr_init_devices[] = {
 
 	// storage devices
 	"/sys/dev/block*",
-	"/sys/devices/msm_sdcc.1*",
-	"/sys/devices/msm_sdcc.3*",
-	"/sys//bus/platform/drivers/msm_hsusb_host*",
-	"/sys/devices/virtual/misc/fuse",
 	"/sys/block/mmcblk0",
 	"/sys/module/mmc_core",
 	"/sys/module/mmcblk",
@@ -32,6 +28,9 @@ const char *mr_init_devices[] = {
 	"/sys/class/tty/ptmx",
 	"/sys/class/misc/android_adb",
 	"/sys/class/android_usb/android0/f_adb",
+
+	"/sys/bus*",
+	"/sys/devices*",
 
 	NULL
 };
