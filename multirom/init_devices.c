@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-// The devices to init for Xperia Z
+// The devices to init for Xperia Z2/Z3
 const char *mr_init_devices[] = {
 	// framebuffer device
 	"/sys/class/graphics/fb0",
@@ -11,6 +11,9 @@ const char *mr_init_devices[] = {
 	"/sys/devices/msm_sdcc.3*",
 	"/sys//bus/platform/drivers/msm_hsusb_host*",
 	"/sys/devices/virtual/misc/fuse",
+	"/sys/block/mmcblk0",
+	"/sys/module/mmc_core",
+	"/sys/module/mmcblk",
 
 	// input
 	"/sys/class/misc/uinput",
